@@ -1,6 +1,5 @@
 {% extends 'layout.html' %}
 {% block body %}
-<!-- Page Content -->
 <div class="container">
     <div class="row">
         <div class="col-lg-3 my-4">
@@ -11,7 +10,6 @@
                 <a href="/shoes" class="list-group-item">Shoes</a>
             </div>
         </div>
-        <!-- /.col-lg-3 -->
         <div class="col-lg-9">
             <div class="row">
                 {% for product in tshirts %}
@@ -21,7 +19,6 @@
                              src="static/image/product/{{product.category}}/{{product.picture}}" alt="">
                     </div>
                 </div>
-                <!-- /.card -->
                 <div class="col-lg-6">
                     <div class="card card-outline-secondary my-4">
                         <div class="card-header">
@@ -36,7 +33,6 @@
                     </div>
                 </div>
                 {% endfor %}
-                <!-- /.card -->
 
             </div>
             {% if x == '' %}
@@ -56,18 +52,14 @@
                             <h4>৳{{product.price}}</h4>
                         </div>
                     </div>
-                    <!-- /.card -->
                 </div>
                 {% endfor %}
             </div>
             {% endif %}
         </div>
-        <!-- /.col-lg-9 -->
 
 
     </div>
-    <!-- /.row -->
 
 </div>
-<!-- /.container -->
 {% endblock %}

@@ -116,7 +116,7 @@ def content_based_filtering(product_id):
 @app.route('/')
 def index():
     form = OrderForm(request.form)
-    # Create cursor
+
     cur = mysql.connection.cursor()
     # Get message
     values = 'tshirt'
@@ -131,19 +131,17 @@ def index():
     values = 'shoes'
     cur.execute("SELECT * FROM products WHERE category=%s ORDER BY RAND() LIMIT 4", (values,))
     shoes = cur.fetchall()
-    # Close Connection
     cur.close()
     return render_template('home.html', tshirt=tshirt, wallet=wallet, belt=belt, shoes=shoes, form=form)
 
 
-class LoginForm(Form):  # Create Login Form
+class LoginForm(Form): 
     username = StringField('', [validators.length(min=1)],
                            render_kw={'autofocus': True, 'placeholder': 'Username'})
     password = PasswordField('', [validators.length(min=3)],
                              render_kw={'placeholder': 'Password'})
 
 
-# User Login
 @app.route('/login', methods=['GET', 'POST'])
 @not_logged_in
 def login():
